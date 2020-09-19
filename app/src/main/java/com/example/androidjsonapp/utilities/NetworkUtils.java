@@ -24,6 +24,7 @@ public class NetworkUtils {
 
         String apiStr = "https://api.publicapis.org/entries";
         if(entryName != ""){
+            Log.d("info", "Adding Query message");
             apiStr += "?title=" + entryName;
         }
         try{
@@ -31,6 +32,8 @@ public class NetworkUtils {
         }catch(MalformedURLException e){
             e.printStackTrace();
         }
+        String logStr = "URL string created: " + apiUrl.toString();
+        Log.d("info", logStr);
 
         return apiUrl;
     }
@@ -44,7 +47,11 @@ public class NetworkUtils {
             Scanner scanner = new Scanner(in);
             scanner.useDelimiter("\\A");
             boolean hasInput = scanner.hasNext();
-            if(hasInput) return scanner.next();
+            if(hasInput){
+                String fullJsonString = scanner.next();
+                Log.d("info", fullJsonString);
+                return fullJsonString;
+            }
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -54,22 +61,32 @@ public class NetworkUtils {
 
     public static ArrayList<String> parseApisJson(String apiResponse){
         ArrayList<String> apiList = new ArrayList<String>();
+        Log.d("info", "Parsing JSON response");
 
         try{
+            Log.d("info", "Inside try block");
             JSONObject allApisObject = new JSONObject(apiResponse);
-            JSONArray allApisArray = allApisObject.getJSONArray("results");
+            JSONArray allApisArray = allApisObject.getJSONArray("entries");
+            int count = allApisObject.getInt("count");
+            String logStr = "JSON object received: count = " + Integer.toString(count);
+            Log.d("info", logStr);
 
-            for(int i = 0; i < allApisArray.length(); i++){
+            for(int i = 0; i < count; i++){
                 JSONObject childJson = allApisArray.getJSONObject(i);
                 if(childJson.has("API")){
                     String title = childJson.getString("API");
-                    apiList.add(title);
+                    if(title != null) {
+                        Log.d("info", title);
+                        apiList.add(title);
+                    }
                 }
             }
 
         }catch(JSONException e){
             Log.d("info", "JSON Parsing Issue");
         }
+
+        Log.d("info", "Returning list without error");
 
         return apiList;
     }

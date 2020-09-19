@@ -13,7 +13,7 @@
         />
 
     <Button
-        android:id="@+id/search_button"
+        android:id="@+id/description_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Description"
@@ -21,18 +21,18 @@
         />
 
     <Button
-        android:id="@+id/reset_button"
+        android:id="@+id/search_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Reset"
-        android:layout_below="@id/search_button"
+        android:text="Search"
+        android:layout_below="@id/description_button"
         />
 
     <TextView
         android:id="@+id/tv_display_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/reset_button"
+        android:layout_below="@id/search_button"
         android:scrollbars="vertical"
         android:text="Public APIs" />
 
