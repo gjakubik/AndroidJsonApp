@@ -90,4 +90,26 @@ public class NetworkUtils {
 
         return apiList;
     }
+
+    public static ArrayList<String> parseApiData(String apiResponse){
+        ArrayList<String> apiData = new ArrayList<String>();
+        Log.d("info", "Parsing API data with response: " + apiResponse);
+        try{
+            JSONObject objectJson = new JSONObject(apiResponse);
+            JSONArray apiSingleList = objectJson.getJSONArray("entries");
+
+            JSONObject apiJson = apiSingleList.getJSONObject(0);
+            apiData.add(apiJson.get("API").toString());
+            apiData.add(apiJson.get("Description").toString());
+            apiData.add(apiJson.get("Auth").toString());
+            apiData.add(apiJson.get("HTTPS").toString());
+            apiData.add(apiJson.get("Cors").toString());
+            apiData.add(apiJson.get("Link").toString());
+            apiData.add(apiJson.get("Category").toString());
+        }catch(JSONException j){
+            j.printStackTrace();
+        }
+
+        return apiData;
+    }
 }

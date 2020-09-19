@@ -15,14 +15,14 @@
         android:background="@drawable/description_text"
         android:text="API Name"
         android:textColor="#FFFFFF"
-        android:textAlignment="center"
-        android:layout_gravity="center_horizontal"
+        android:paddingStart="35dp"
+        android:paddingLeft="35dp"
         android:paddingTop="10dp"
         android:textSize="22sp"
     />
 
     <TextView
-        android:id="@+id/tv_api_description"
+        android:id="@+id/tv_api_descriptionTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_api_name"
@@ -33,6 +33,80 @@
         android:paddingLeft="30dp"
         android:textColor="#FFFFFF"
         android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/tv_api_descriptionText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_api_descriptionTitle"
+        android:layout_marginTop="20dp"
+        android:paddingStart="30dp"
+        android:paddingLeft="30dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:background="@drawable/description_subtext"
+        android:text = "Description Text"
+        android:textSize="17sp"
+        android:textColor="#FAFAFB"
+        />
+
+    <TextView
+        android:id="@+id/tv_api_authTypeTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_api_descriptionText"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/description_text"
+        android:text="Authorization Type"
+        android:paddingStart="30dp"
+        android:paddingLeft="30dp"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/tv_api_authTypeText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_api_authTypeTitle"
+        android:layout_marginTop="20dp"
+        android:paddingStart="30dp"
+        android:paddingLeft="30dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:background="@drawable/description_subtext"
+        android:text = "Authorization Text"
+        android:textSize="17sp"
+        android:textColor="#FAFAFB"
+        />
+
+    <TextView
+        android:id="@+id/tv_api_categoryTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_api_authTypeText"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/description_text"
+        android:text="Category"
+        android:paddingStart="30dp"
+        android:paddingLeft="30dp"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/tv_api_categoryText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_api_categoryTitle"
+        android:layout_marginTop="20dp"
+        android:paddingStart="30dp"
+        android:paddingLeft="30dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:background="@drawable/description_subtext"
+        android:text = "Category Text"
+        android:textSize="17sp"
+        android:textColor="#FAFAFB"
+        />
 
 
 </RelativeLayout>
