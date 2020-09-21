@@ -12,21 +12,21 @@
         android:id="@+id/tv_api_name"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/description_text"
+        android:background="@drawable/description_header"
         android:text="API Name"
         android:textColor="#FFFFFF"
         android:paddingStart="35dp"
         android:paddingLeft="35dp"
         android:paddingTop="10dp"
         android:textSize="22sp"
-    />
+        />
 
     <TextView
         android:id="@+id/tv_api_descriptionTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_api_name"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/description_text"
         android:text="Description"
         android:paddingStart="30dp"
@@ -104,6 +104,35 @@
         android:layout_marginStart="40dp"
         android:background="@drawable/description_subtext"
         android:text = "Category Text"
+        android:textSize="17sp"
+        android:textColor="#FAFAFB"
+        />
+
+    <TextView
+        android:id="@+id/tv_api_httpTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_api_categoryText"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/description_text"
+        android:text="HTTP Supported"
+        android:paddingStart="30dp"
+        android:paddingLeft="30dp"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/tv_api_httpText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_api_httpTitle"
+        android:layout_marginTop="20dp"
+        android:paddingStart="30dp"
+        android:paddingLeft="30dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:background="@drawable/description_subtext"
+        android:text = "HTTP Text"
         android:textSize="17sp"
         android:textColor="#FAFAFB"
         />

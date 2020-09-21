@@ -2,16 +2,25 @@ package com.example.androidjsonapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.LayerDrawable;
+import android.graphics.drawable.shapes.Shape;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
+import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.androidjsonapp.utilities.NetworkUtils;
 
 import java.net.URL;
+import java.text.Normalizer;
 import java.util.ArrayList;
+import java.util.List;
 
 public class DescriptionActivity extends AppCompatActivity {
 
@@ -20,6 +29,7 @@ public class DescriptionActivity extends AppCompatActivity {
     private TextView apiDescriptionText;
     private TextView apiAuthTypeText;
     private TextView apiCategoryText;
+    private TextView apiHttpText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +48,7 @@ public class DescriptionActivity extends AppCompatActivity {
         apiAuthTypeText = findViewById(R.id.tv_api_authTypeText);
         apiDescriptionText = findViewById(R.id.tv_api_descriptionText);
         apiCategoryText = findViewById(R.id.tv_api_categoryText);
+        apiHttpText = findViewById(R.id.tv_api_httpText);
 
         if (queryTitle.equals("No API Specified")) {
             Log.d("info", "Not making API request");
@@ -85,9 +96,27 @@ public class DescriptionActivity extends AppCompatActivity {
 
             if(data.get(2).equals("")){
                 apiAuthTypeText.setText("No API key needed");
+            }else{
+                apiAuthTypeText.setText(data.get(2));
+            }
+
+            if(data.get(3).equals("true")) {
+                apiHttpText.setText("Supported.");
             }
             else{
-                apiAuthTypeText.setText(data.get(2));
+                apiHttpText.setText("Not supported.");
+            }
+
+            String httpStatus = data.get(3);
+            TextView background;
+            background = (TextView) findViewById(R.id.background);
+            if (httpStatus.toLowerCase().equals("yes")){
+                Log.d("info", "inside httpStatus");
+                try {
+                    background.setBackgroundColor(Color.rgb(92, 191, 117));
+                }catch (Exception e){
+                    System.out.println(e.getMessage());
+                }
             }
 
             apiCategoryText.setText(data.get(6));

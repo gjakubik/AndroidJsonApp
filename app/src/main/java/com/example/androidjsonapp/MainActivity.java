@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
                         boolean foundAPI = false;
                         for(String title: titles){
+                            // Log.d("info", title + " " + searchStr);
                             if(title.toLowerCase().equals(searchStr.toLowerCase())){
                                 foundAPI = true;
                                 resultDisplay.setText(title);
